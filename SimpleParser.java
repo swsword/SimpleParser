@@ -11,6 +11,8 @@ public class SimpleParser {
 
 	public static void main (String [] args) throws IOException{
 		
+		/* regular expression */
+		
 		Pattern p = Pattern.compile("<{0,}?\\S[^><]+>{0,}");
 		
 		String text = xmlToString();
@@ -26,6 +28,7 @@ public class SimpleParser {
 			
 	}
 	
+	/* to convert XML content to one String exemplar */ 
 	
 	public static String xmlToString() throws IOException {
 		ArrayList<String> arr = (ArrayList<String>) Files.readAllLines(new File("src/Order.xml").toPath(), Charset.forName("UTF-8"));
@@ -36,6 +39,8 @@ public class SimpleParser {
 		return a;
 	}
 	
+	/* to add all matches to collection*/ 
+	
 	public static ArrayList<String> toParse (Matcher m) {
 	
 		ArrayList <String> list = new ArrayList <String>(); 
@@ -45,6 +50,8 @@ public class SimpleParser {
 		}
 		return list;
 	}
+	
+	/* to display all content of match's collection*/ 
 	
 	public static void printParserXml (ArrayList <String> list) {
 		for (String text : list){
